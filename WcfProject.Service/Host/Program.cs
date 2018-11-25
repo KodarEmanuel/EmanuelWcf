@@ -14,7 +14,7 @@ namespace Host
     {
         static void Main(string[] args)
         {
-
+            //Seed
             if (!File.Exists("./BookingDB.sqlite"))
             {
                new Internal().SeedDb(cars: 10, customers: 50, bookings: 80);
