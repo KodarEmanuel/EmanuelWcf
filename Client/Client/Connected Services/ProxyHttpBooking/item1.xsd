@@ -17,20 +17,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
-  <xs:complexType name="ArrayOfCar">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
-  <xs:complexType name="Car">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="RegNr" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="YearModel" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Car" nillable="true" type="tns:Car" />
 </xs:schema>

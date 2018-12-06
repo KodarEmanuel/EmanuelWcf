@@ -34,6 +34,8 @@
       <xsd:import schemaLocation="http://localhost:6080/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:6080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:6080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Data.Domains" />
+      <xsd:import schemaLocation="http://localhost:6080/?xsd=xsd3" namespace="http://book.book/Booking" />
+      <xsd:import schemaLocation="http://localhost:6080/?xsd=xsd4" namespace="http://carservice/Employee" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceBooking_Create_InputMessage">
@@ -65,6 +67,15 @@
   </wsdl:message>
   <wsdl:message name="IServiceBooking_Delete_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BookingRequest">
+    <wsdl:part xmlns:q1="http://book.book/Booking" name="parameters" element="q1:BookingRqObject" />
+  </wsdl:message>
+  <wsdl:message name="BookingRequest_Headers">
+    <wsdl:part xmlns:q2="http://book.book/Booking" name="LisenceKey" element="q2:LisenceKey" />
+  </wsdl:message>
+  <wsdl:message name="BookingInfo">
+    <wsdl:part xmlns:q3="http://book.book/Booking" name="parameters" element="q3:BookingRqObject" />
   </wsdl:message>
   <wsdl:message name="IServiceBooking_GetAllBookingTimeSpan_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBookingTimeSpan" />
@@ -104,6 +115,10 @@
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceGenericOf_Booking/Delete" message="tns:IServiceBooking_Delete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceGenericOf_Booking/DeleteResponse" message="tns:IServiceBooking_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBooking/GetBookingInfo" name="BookingRequest" message="tns:BookingRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBooking/GetBookingInfoResponse" name="BookingInfo" message="tns:BookingInfo" />
     </wsdl:operation>
     <wsdl:operation name="GetAllBookingTimeSpan">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBooking/GetAllBookingTimeSpan" message="tns:IServiceBooking_GetAllBookingTimeSpan_InputMessage" />
@@ -162,6 +177,16 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookingInfo">
+      <soap:operation soapAction="http://tempuri.org/IServiceBooking/GetBookingInfo" style="document" />
+      <wsdl:input name="BookingRequest">
+        <soap:header message="tns:BookingRequest_Headers" part="LisenceKey" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BookingInfo">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -241,6 +266,16 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetBookingInfo">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBooking/GetBookingInfo" style="document" />
+      <wsdl:input name="BookingRequest">
+        <soap12:header message="tns:BookingRequest_Headers" part="LisenceKey" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BookingInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllBookingTimeSpan">
       <soap12:operation soapAction="http://tempuri.org/IServiceBooking/GetAllBookingTimeSpan" style="document" />
       <wsdl:input>
@@ -278,7 +313,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:6081/serviceAddress</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-3I2DCJV\#omx1044</Upn>
+          <Upn>DESKTOP-TEQ645D\OMX1044</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

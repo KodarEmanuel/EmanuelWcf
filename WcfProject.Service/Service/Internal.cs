@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Repos;
 using Data.Domains;
-
 namespace Service
 {
     public class Internal
@@ -18,7 +17,7 @@ namespace Service
             for (int i = 0; i < Math.Max(Math.Max(customers, cars), bookings); i++)
             {
                 if (customers >= i || customers < 0) cr.Add(new Customer { FName = "Fname" + i, LName = "Lname" + i, Email = "mail" + i + "@mail.mail", Phone = ("07" + new Random().Next(0, 99999999)) });
-                if (cars >= i || cars < 0) ca.Add(new Car {Brand="Volvo",Color="Red",RegNr="ABC000".Substring(0,6-i.ToString().Length)+i ,YearModel=(1995+i%23).ToString()});
+                if (cars >= i || cars < 0) ca.Add(new Car {Brand="Volvo",Color="Red", SerialNumber=GetSerialNum(), RegNr="ABC000".Substring(0,6-i.ToString().Length)+i ,YearModel=(1995+i%23).ToString()});
                 if (bookings >= i) br.BookCar(
                     new Booking
                     {
@@ -30,6 +29,15 @@ namespace Service
                     });
               
             }
+
+        }
+
+        private string GetSerialNum()
+        {
+            string serNum = "";
+            serNum += Convert.ToChar(new Random().Next(62,122));
+           
+            return string.Empty;
         }
     }
 }

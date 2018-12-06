@@ -140,7 +140,7 @@ namespace Client.ProxyHttpBooking {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Car", Namespace="http://schemas.datacontract.org/2004/07/Data.Domains")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Car", Namespace="http://carservice/Employee")]
     [System.SerializableAttribute()]
     public partial class Car : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -148,16 +148,16 @@ namespace Client.ProxyHttpBooking {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BrandField;
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RegNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RegNrField;
+        private string BrandField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string YearModelField;
@@ -169,32 +169,6 @@ namespace Client.ProxyHttpBooking {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Brand {
-            get {
-                return this.BrandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
-                    this.BrandField = value;
-                    this.RaisePropertyChanged("Brand");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Color {
-            get {
-                return this.ColorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ColorField, value) != true)) {
-                    this.ColorField = value;
-                    this.RaisePropertyChanged("Color");
-                }
             }
         }
         
@@ -224,7 +198,33 @@ namespace Client.ProxyHttpBooking {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColorField, value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string Brand {
+            get {
+                return this.BrandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
+                    this.BrandField = value;
+                    this.RaisePropertyChanged("Brand");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string YearModel {
             get {
                 return this.YearModelField;
@@ -281,6 +281,13 @@ namespace Client.ProxyHttpBooking {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGenericOf_Booking/Delete", ReplyAction="http://tempuri.org/IServiceGenericOf_Booking/DeleteResponse")]
         System.Threading.Tasks.Task DeleteAsync(Client.ProxyHttpBooking.Booking entity);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBooking/GetBookingInfo", ReplyAction="http://tempuri.org/IServiceBooking/GetBookingInfoResponse")]
+        Client.ProxyHttpBooking.BookingInfo GetBookingInfo(Client.ProxyHttpBooking.BookingRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBooking/GetBookingInfo", ReplyAction="http://tempuri.org/IServiceBooking/GetBookingInfoResponse")]
+        System.Threading.Tasks.Task<Client.ProxyHttpBooking.BookingInfo> GetBookingInfoAsync(Client.ProxyHttpBooking.BookingRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBooking/GetAllBookingTimeSpan", ReplyAction="http://tempuri.org/IServiceBooking/GetAllBookingTimeSpanResponse")]
         Client.ProxyHttpBooking.Booking[] GetAllBookingTimeSpan(System.DateTime startDate, System.DateTime endDate);
         
@@ -298,6 +305,42 @@ namespace Client.ProxyHttpBooking {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBooking/GetAvailableCars", ReplyAction="http://tempuri.org/IServiceBooking/GetAvailableCarsResponse")]
         System.Threading.Tasks.Task<Client.ProxyHttpBooking.Car[]> GetAvailableCarsAsync(System.DateTime start, System.DateTime end);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="BookingRqObject", WrapperNamespace="http://book.book/Booking", IsWrapped=true)]
+    public partial class BookingRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://book.book/Booking")]
+        public string LisenceKey;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://book.book/Booking", Order=0)]
+        public int Id;
+        
+        public BookingRequest() {
+        }
+        
+        public BookingRequest(string LisenceKey, int Id) {
+            this.LisenceKey = LisenceKey;
+            this.Id = Id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="BookingRqObject", WrapperNamespace="http://book.book/Booking", IsWrapped=true)]
+    public partial class BookingInfo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://book.book/Booking", Order=0)]
+        public int Id;
+        
+        public BookingInfo() {
+        }
+        
+        public BookingInfo(int Id) {
+            this.Id = Id;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -365,6 +408,23 @@ namespace Client.ProxyHttpBooking {
         
         public System.Threading.Tasks.Task DeleteAsync(Client.ProxyHttpBooking.Booking entity) {
             return base.Channel.DeleteAsync(entity);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Client.ProxyHttpBooking.BookingInfo Client.ProxyHttpBooking.IServiceBooking.GetBookingInfo(Client.ProxyHttpBooking.BookingRequest request) {
+            return base.Channel.GetBookingInfo(request);
+        }
+        
+        public void GetBookingInfo(string LisenceKey, ref int Id) {
+            Client.ProxyHttpBooking.BookingRequest inValue = new Client.ProxyHttpBooking.BookingRequest();
+            inValue.LisenceKey = LisenceKey;
+            inValue.Id = Id;
+            Client.ProxyHttpBooking.BookingInfo retVal = ((Client.ProxyHttpBooking.IServiceBooking)(this)).GetBookingInfo(inValue);
+            Id = retVal.Id;
+        }
+        
+        public System.Threading.Tasks.Task<Client.ProxyHttpBooking.BookingInfo> GetBookingInfoAsync(Client.ProxyHttpBooking.BookingRequest request) {
+            return base.Channel.GetBookingInfoAsync(request);
         }
         
         public Client.ProxyHttpBooking.Booking[] GetAllBookingTimeSpan(System.DateTime startDate, System.DateTime endDate) {

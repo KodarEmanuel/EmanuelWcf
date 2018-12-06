@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:6080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Data.Domains" />
+  <xs:import schemaLocation="http://localhost:6080/?xsd=xsd4" namespace="http://carservice/Employee" />
   <xs:element name="Create">
     <xs:complexType>
       <xs:sequence>
@@ -101,7 +102,7 @@
   <xs:element name="GetAvailableCarsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="GetAvailableCarsResult" nillable="true" type="q8:ArrayOfCar" />
+        <xs:element xmlns:q8="http://carservice/Employee" minOccurs="0" name="GetAvailableCarsResult" nillable="true" type="q8:ArrayOfCar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

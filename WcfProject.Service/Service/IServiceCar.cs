@@ -11,9 +11,6 @@ namespace Service
     [ServiceContract]
     public interface IServiceCar : IServiceGeneric<Car>
     {
-      
-        [OperationContract]
-        Car[] ReadAvailableCars();
 
         [OperationContract]
         Customer ReadCurrentCustomer(Car entity);

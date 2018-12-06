@@ -11,49 +11,53 @@ namespace Service
 {
     public class ServiceCar : IServiceCar
     {
+        public CarRepo carRepo = new CarRepo();
+
         public void Create(Car entity)
         {
-            throw new NotImplementedException();
+            carRepo.Add(entity);
         }
 
         public void Delete(Car entity)
         {
-            throw new NotImplementedException();
+            carRepo.Delete(entity);
         }
 
         public Car[] ReadAll()
         {
-            throw new NotImplementedException();
+            return carRepo.GetAll().ToArray();
         }
 
         public Booking[] ReadAllPastBookings(Car entity)
         {
-            throw new NotImplementedException();
+            return new BookingRepo().GetBookings().Where(m=> m.CarId==entity.Id).ToArray();
         }
 
         public Customer[] ReadAllPastCustomers(Car entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Car[] ReadAvailableCars()
-        {
-            throw new NotImplementedException();
+            List <Customer> customers = new List<Customer>();
+            var bookings = new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id).ToArray();
+            foreach (Booking booking in bookings)
+            {
+                customers.Add(new CustomerRepo().GetById(booking.CustumerId));
+            }
+            return customers.ToArray();
         }
 
         public Car ReadById(int id)
         {
-            throw new NotImplementedException();
+            return carRepo.GetById(id);
         }
 
         public Booking ReadCurrentBooking(Car entity)
         {
-            throw new NotImplementedException();
+            return new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id && m.Start < DateTime.Now && m.End > DateTime.Now).FirstOrDefault();
         }
 
         public Customer ReadCurrentCustomer(Car entity)
         {
-            throw new NotImplementedException();
+
+            return new CustomerRepo().GetById(new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id && m.Start < DateTime.Now && m.End > DateTime.Now).FirstOrDefault().CustumerId);
         }
 
         public void Update(Car entity)

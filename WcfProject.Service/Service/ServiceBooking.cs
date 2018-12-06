@@ -11,6 +11,13 @@ namespace Service
     public class ServiceBooking : IServiceBooking
     {
         private BookingRepo bookingRepo = new BookingRepo();
+
+        public BookingInfo GetBookingInfo(BookingRequest bookingRequest)
+        {
+
+            return new BookingInfo(bookingRepo.GetBookingById(bookingRequest.Id));
+        }
+
         public void Create(Booking entity)
         {
             bookingRepo.BookCar(entity);

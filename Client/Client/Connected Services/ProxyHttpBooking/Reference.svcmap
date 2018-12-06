@@ -22,10 +22,12 @@
     <MetadataSource Address="http://localhost:6080/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="9535d9ae-e2e9-4593-b78b-d91dcb7f4b39" SourceId="1" SourceUrl="http://localhost:6080/?disco" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="bc8a05af-dc6a-4beb-a187-74728bee33a5" SourceId="1" SourceUrl="http://localhost:6080/?xsd=xsd1" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="ac889c32-5bfc-4685-9079-5c1e7be253ac" SourceId="1" SourceUrl="http://localhost:6080/?xsd=xsd2" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="27ed1009-6342-490e-8a9b-c44a5f79c939" SourceId="1" SourceUrl="http://localhost:6080/?xsd=xsd4" />
     <MetadataFile FileName="ServiceBooking.wsdl" MetadataType="Wsdl" ID="e36e287b-c2a9-43db-b4c7-c1d04381a13a" SourceId="1" SourceUrl="http://localhost:6080/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="9535d9ae-e2e9-4593-b78b-d91dcb7f4b39" SourceId="1" SourceUrl="http://localhost:6080/?disco" />
+    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="8784ce08-da02-47e9-8b0d-853d186f267b" SourceId="1" SourceUrl="http://localhost:6080/?xsd=xsd3" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4098ed61-5021-49a7-90d5-b88c34d10396" SourceId="1" SourceUrl="http://localhost:6080/?xsd=xsd0" />
   </Metadata>
   <Extensions>

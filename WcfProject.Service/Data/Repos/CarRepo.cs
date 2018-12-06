@@ -22,6 +22,7 @@ namespace Data.Repos
                  CREATE TABLE IF NOT EXISTS [Car] (
                  [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                  [RegNr] NVARCHAR(7) NOT NULL,
+                 [SerialNumber] NVARCHAR(15) NOT NULL,
                  [Color] NVARCHAR(128) NOT NULL,
                  [Brand] NVARCHAR(128) NOT NULL,
                  [YearModel] INTEGER NOT NULL

@@ -11,6 +11,10 @@ namespace Service
     [ServiceContract]
     interface IServiceBooking : IServiceGeneric<Booking>
     {
+
+        [OperationContract]
+        BookingInfo GetBookingInfo(BookingRequest bookingRequest);
+
         [OperationContract]
         Booking[] GetAllBookingTimeSpan(DateTime startDate, DateTime endDate);
 
