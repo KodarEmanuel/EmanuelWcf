@@ -25,7 +25,15 @@ namespace Service
 
         public void Delete(Booking entity)
         {
-            bookingRepo.RemoveBooking(entity);
+            try
+            {
+                bookingRepo.RemoveBooking(entity);
+            }
+            catch
+
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public Booking[] GetAllBookingTimeSpan(DateTime startDate, DateTime endDate)
@@ -40,17 +48,39 @@ namespace Service
 
         public Booking ReadById(int id)
         {
-            return bookingRepo.GetBookingById(id);
+            try
+            {
+                return bookingRepo.GetBookingById(id);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public void ReturnCar(Booking booking)
         {
-            bookingRepo.ReturnCar(booking);
+            try
+            {
+                bookingRepo.ReturnCar(booking);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public void Update(Booking entity)
         {
-            bookingRepo.ReturnCar(entity);
+
+            try
+            {
+                bookingRepo.ReturnCar(entity);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public Car[] GetAvailableCars(DateTime start, DateTime end)
