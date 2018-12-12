@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Domains;
 using Data.Repos;
+using System.Configuration;
 
 namespace Service
 {
@@ -14,8 +15,13 @@ namespace Service
 
         public BookingInfo GetBookingInfo(BookingRequest bookingRequest)
         {
+            var a = ConfigurationManager.AppSettings;
+            foreach (string key in ConfigurationManager.AppSettings.AllKeys)
+            {
+                if(bookingRequest.LisenceKey == key) return new BookingInfo(bookingRepo.GetBookingById(bookingRequest.Id));
+            }
 
-            return new BookingInfo(bookingRepo.GetBookingById(bookingRequest.Id));
+            throw new Exception(message: "no authentication! ");
         }
 
         public void Create(Booking entity)

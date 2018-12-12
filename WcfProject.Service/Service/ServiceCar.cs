@@ -20,7 +20,14 @@ namespace Service
 
         public void Delete(Car entity)
         {
-            carRepo.Delete(entity);
+            try
+            {
+                carRepo.Delete(entity);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public Car[] ReadAll()
@@ -30,18 +37,37 @@ namespace Service
 
         public Booking[] ReadAllPastBookings(Car entity)
         {
-            return new BookingRepo().GetBookings().Where(m=> m.CarId==entity.Id).ToArray();
+
+            try
+            {
+                return new BookingRepo().GetBookings().Where(m=> m.CarId==entity.Id).ToArray();
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
+
         }
 
         public Customer[] ReadAllPastCustomers(Car entity)
         {
-            List <Customer> customers = new List<Customer>();
-            var bookings = new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id).ToArray();
-            foreach (Booking booking in bookings)
+
+            try
             {
-                customers.Add(new CustomerRepo().GetById(booking.CustumerId));
+                List <Customer> customers = new List<Customer>();
+                var bookings = new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id).ToArray();
+                foreach (Booking booking in bookings)
+                {
+                    customers.Add(new CustomerRepo().GetById(booking.CustumerId));
+                }
+                return customers.ToArray();
             }
-            return customers.ToArray();
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
+
+
         }
 
         public Car ReadById(int id)
@@ -56,8 +82,14 @@ namespace Service
 
         public Customer ReadCurrentCustomer(Car entity)
         {
-
-            return new CustomerRepo().GetById(new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id && m.Start < DateTime.Now && m.End > DateTime.Now).FirstOrDefault().CustumerId);
+            try
+            {
+                return new CustomerRepo().GetById(new BookingRepo().GetBookings().Where(m => m.CarId == entity.Id && m.Start < DateTime.Now && m.End > DateTime.Now).FirstOrDefault().CustumerId);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not found");
+            }
         }
 
         public void Update(Car entity)
