@@ -10,7 +10,6 @@ namespace Data.Domains
     [MessageContract(IsWrapped = true, WrapperName = "BookingRqObject", WrapperNamespace = "http://book.book/Booking")]
     public class BookingRequest
     {
-
         [MessageHeader(Namespace = "http://book.book/Booking")]
         public string LisenceKey { get; set; }
 

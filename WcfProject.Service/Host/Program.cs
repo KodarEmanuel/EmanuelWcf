@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.ServiceModel;
 using Service;
-
+using Data.Domains;
 
 namespace Host
 {
@@ -14,12 +14,14 @@ namespace Host
     {
         static void Main(string[] args)
         {
+
             //Seed
             if (!File.Exists("./BookingDB.sqlite"))
             {
                new Internal().SeedDb(cars: 10, customers: 50, bookings: 80);
                 Console.WriteLine("Db is Seeded");
             }
+            new ServiceBooking().GetBookingInfo(new BookingRequest {LisenceKey="key1", Id =1 });
 
           
             ServiceHost[] hosts = new ServiceHost[]

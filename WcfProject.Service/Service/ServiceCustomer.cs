@@ -20,7 +20,14 @@ namespace Service
 
         public void Delete(Customer entity)
         {
-            customerRepo.Delete(entity);
+            try
+            {
+                customerRepo.Delete(entity);
+            }
+            catch
+            {
+                throw new Exception(message: "Entity not foud");
+            }
         }
 
         public Booking[] GetAllPastBookings(Customer customer)

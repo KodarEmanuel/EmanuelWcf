@@ -46,7 +46,7 @@ namespace Data.Repos
             using (var db = new SQLiteConnection(conn))
             {
                 db.Open();
-                return db.Query<Booking>("SELECT * FROM Booking WHERE id = @id").FirstOrDefault();
+                return db.Query<Booking>(string.Format("SELECT * FROM Booking WHERE id = {0}",id)).FirstOrDefault();
             }
         }
 

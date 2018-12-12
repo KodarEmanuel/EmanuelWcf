@@ -1,0 +1,11 @@
+• Var har du valt att hantera excptions
+På de flesta stllen där clienten skickar en entitet som argument för att ändra, ta bort eller hämta någåt i databasen. (för om det inte finns så kan man få exceptions). 
+• Vilka bindings har du använt, och varför har du valt just dessa 
+Jag har valt att använda netTcp och wshttp. wcHttp för säkerhet och netTcp för att ge flexibilitet till clienten.
+• Om du provat en sak men inte fått den att fungera som du vill och gjort något annat 
+Jag hade en vision om att bygga en servicerouter som håller koll på förfrågnngar och som startar upp nya service instancer på nya platser när belastning är hög och stänger ner när belastning är låg. Detta skulle vara ett eget projekt. 
+Clienter ??ServiceRouter ??Serivces. 
+Jag stötte på för många problem och projektet blev hastigt mer avancerat än vad jag kunde hantera. Därför valde jag att lägga ner och göra prjektet på vanligt vis.
+• Och andra aktiva val du har gjort
+Jag valde att använda tre st service hostar för att avgrönsa och dela upp hela applikationen. 
+
