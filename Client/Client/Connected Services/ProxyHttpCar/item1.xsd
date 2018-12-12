@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Data.Domains" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://carservice/Employee" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Data.Domains" />
   <xs:element name="Create">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q1:Car" />
+        <xs:element xmlns:q1="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q1:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -21,7 +22,7 @@
   <xs:element name="ReadAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAllResult" nillable="true" type="q2:ArrayOfCar" />
+        <xs:element xmlns:q2="http://carservice/Employee" minOccurs="0" name="ReadAllResult" nillable="true" type="q2:ArrayOfCar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -35,14 +36,14 @@
   <xs:element name="ReadByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadByIdResult" nillable="true" type="q3:Car" />
+        <xs:element xmlns:q3="http://carservice/Employee" minOccurs="0" name="ReadByIdResult" nillable="true" type="q3:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Update">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q4:Car" />
+        <xs:element xmlns:q4="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q4:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +55,7 @@
   <xs:element name="Delete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q5:Car" />
+        <xs:element xmlns:q5="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q5:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -63,71 +64,59 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReadAvailableCars">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReadAvailableCarsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAvailableCarsResult" nillable="true" type="q6:ArrayOfCar" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ReadCurrentCustomer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q7:Car" />
+        <xs:element xmlns:q6="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q6:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadCurrentCustomerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadCurrentCustomerResult" nillable="true" type="q8:Customer" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadCurrentCustomerResult" nillable="true" type="q7:Customer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadAllPastCustomers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q9:Car" />
+        <xs:element xmlns:q8="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q8:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadAllPastCustomersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAllPastCustomersResult" nillable="true" type="q10:ArrayOfCustomer" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAllPastCustomersResult" nillable="true" type="q9:ArrayOfCustomer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadCurrentBooking">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q11:Car" />
+        <xs:element xmlns:q10="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q10:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadCurrentBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadCurrentBookingResult" nillable="true" type="q12:Booking" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadCurrentBookingResult" nillable="true" type="q11:Booking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadAllPastBookings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="entity" nillable="true" type="q13:Car" />
+        <xs:element xmlns:q12="http://carservice/Employee" minOccurs="0" name="entity" nillable="true" type="q12:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReadAllPastBookingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAllPastBookingsResult" nillable="true" type="q14:ArrayOfBooking" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Data.Domains" minOccurs="0" name="ReadAllPastBookingsResult" nillable="true" type="q13:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

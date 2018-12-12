@@ -15,12 +15,23 @@ namespace Client
         static void Main(string[] args)
         {
             //test
-            using (var proxy = new ProxyHttpBooking.ServiceBookingClient("BasicHttpBinding_IServiceBooking"))
+            using (var proxy = new ProxyHttpBooking.ServiceBookingClient("WSHttpBinding_IServiceBooking"))
             {
                 var cars = proxy.GetAvailableCars(new DateTime(2000, 05, 18), new DateTime(2000, 05, 29)).ToArray();
-                var a = infoAsync(proxy);
+                //var a = infoAsync(proxy);
+
+            }
+            using (var proxy = new ProxyHttpCar.ServiceCarClient("WSHttpBinding_IServiceCar"))
+            {
+                var a = proxy.ReadAll();
+            }
+            using (var proxy = new ProxyHttpCustomer.ServiceCustomerClient("WSHttpBinding_IServiceCustomer"))
+            {
+                var a = proxy.ReadAll();
             }
         }
+
+
 
         private static async Task<BookingInfo> infoAsync(ServiceBookingClient client)
         {
@@ -28,3 +39,6 @@ namespace Client
         }
     }
 }
+
+
+

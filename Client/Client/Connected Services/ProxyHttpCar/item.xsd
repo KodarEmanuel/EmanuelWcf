@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Data.Domains" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Data.Domains" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://carservice/Employee" elementFormDefault="qualified" targetNamespace="http://carservice/Employee" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="Car">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="RegNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="YearModel" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -16,37 +16,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
-  <xs:complexType name="Customer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="LName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Customer" nillable="true" type="tns:Customer" />
-  <xs:complexType name="ArrayOfCustomer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
-  <xs:complexType name="Booking">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CarId" type="xs:int" />
-      <xs:element minOccurs="0" name="CustumerId" type="xs:int" />
-      <xs:element minOccurs="0" name="End" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Returned" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Booking" nillable="true" type="tns:Booking" />
-  <xs:complexType name="ArrayOfBooking">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Booking" nillable="true" type="tns:Booking" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
 </xs:schema>

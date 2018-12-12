@@ -109,6 +109,9 @@
     <None Include="Connected Services\ProxyHttpCar\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyHttpCar\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProxyHttpCar\ServiceCar.wsdl" />
     <None Include="Connected Services\ProxyHttpCustomer\Client.ProxyHttpCustomer.Booking.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
